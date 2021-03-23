@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <h3>{{ user.name }}{{ user.ahe }}{{ user.bir }}</h3>
+    <hr>
+    <!--    -->
+    <span v-for="(value,key,index) in user">{{ key }}:{{ value }}==={{ index }} </span>
+    <hr>
+<!--遍历数组-->
+    <ul>
+        <li v-for="(city,index) in arr">{{ index+1  }}--{{ city }}</li>
+    </ul>
+    <!--遍历数组中的对象-->
+    <hr>
+    <ul>
+        <li v-for="(emp,index) in emp_list">{{ index+1 }}--{{ emp.name }}=={{ emp.age }}=={{ emp.bir }}</li>
+    </ul>
+
+    <table cellspacing="0" border="1">
+        <tr>
+            <td>ID</td>
+            <td>姓名</td>
+            <td>年龄</td>
+            <td>生日</td>
+        </tr>
+        <!--  :key="index" 为了方便vue排序来提供给vue key必须唯一 -->
+        <tr v-for="(emp,index) in emp_list" :key="index">
+            <td>{{ index+1 }}</td>
+            <td>{{ emp.name }}</td>
+            <td>{{ emp.age }}</td>
+            <td>{{ emp.bir }}</td>
+        </tr>
+    </table>
+</div>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            user:{name:"小黑",age:23,bir:"2012-12-2"},
+            arr:["北京","上海","广州"],
+            //数组中包含对象
+            emp_list:[
+                {name:"小黑",age:23,bir:"2012-12-2"},
+                {name:"小白",age:23,bir:"2012-12-2"},
+                {name:"小红",age:23,bir:"2012-12-2"},
+            ],
+        },
+    })
+</script>
+</body>
+</html>

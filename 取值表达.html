@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>取值表达</title>
+</head>
+<body>
+    <div id="app" class="aa">
+        <!--插值表达式-->
+        {{ msg.toLowerCase() }}
+        <hr>
+        {{ num /2 }}
+    </div>
+<script src="js/vue.min.js"></script>
+    <script>
+        new Vue({
+            el:".aa",
+            data:{
+                msg:"Hello World",
+                num:10,
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>参数传递</title>
+</head>
+<body>
+    <div id="app">
+        <h3>{{ count }}</h3>
+        <input type="button" value="改变count的值" @click="change_count(88,'tom')">
+        <hr>
+        <span @click="click_me">点击我</span>
+        <span @click="click_me2()">惦记我</span>
+    </div>
+<script src="js/vue.min.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+              count:20,
+            },
+            methods:{
+              change_count(number,name){
+                  console.log(name);
+                  this.count=number;
+              },
+                click_me(){
+                  console.log(event);
+                },
+                click_me2(event){
+                  console.log(event)
+                },
+            },
+        })
+    </script>
+</body>
+</html>

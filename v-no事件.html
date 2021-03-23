@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on事件</title>
+</head>
+<body>
+<div id="app">
+    <h3>{{ age }}</h3>
+    <input type="button" value="年龄减一" v-on:click="change_age">
+    <input type="button" value="年龄加一" @click="age_add">
+</div>
+<script src="js/vue.min.js"></script>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+             age:50,
+        },
+        methods:{
+            change_age() {
+                console.log(this.age);
+                this.age--;
+            },
+            age_add() {
+                this.age++;
+            }
+        },
+    })
+</script>
+</body>
+</html>

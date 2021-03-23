@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+留言板实现思路：
+    1. 展示留言板
+        a. 将所有的数据绑定为vue的实例
+        b. 遍历vue实例中的数据并展示到页面
+
+    2. 添加留言
+        a. 绑定事件到添加留言按钮上
+        b. 在触发的事件函数中获取到用户输入的留言板内容
+        c. 通过双向绑定获取到输入框的值，添加到留言板
+
+    3. 删除留言
+        a. 绑定删除事件
+        b. 在事件中通过参数确定要删除哪一行
+        c. 事件中根据参数调用方法完成删除
+
+    4. 留言板总数量
+        有留言才显示数量 没有则不显示
+    -->
+<head>
+    <meta charset="UTF-8">
+    <title>留言板</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="message">
+        <input type="button" value="首行添加留言" @click="unshift_add">
+        <input type="button" value="末尾追加留言" @click="push_add">
+        <hr>
+        <ul>
+            <li v-for="(value,index) in ars">
+                {{ value }}
+                <span @click="del(index)"><a href="javascript:;">删除</a></span>
+            </li>
+        </ul>
+        <span v-show="ars.length>0">
+            总计有:{{ ars.length }}条
+            <a href="javascript:;" @click="del_all">删除全部</a>
+        </span>
+    </div>
+    <script src="js/vue.min.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                ars:["留言内容1","留言内容2"],
+                message:"",
+            },
+            methods:{
+                //首行添加留言
+                unshift_add(){
+                    this.ars.unshift(this.message);
+                    this.message="";
+                },
+                //末尾追加留言
+                push_add(){
+                    this.ars.push(this.message);
+                    this.message="";
+                },
+                //删除留言
+                del(index){
+                    console.log(index);
+                    this.ars.splice(index,1);
+                },
+                //删除全部
+                del_all(){
+                    this.ars.splice(0);
+                }
+            },
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-show使用</title>
+</head>
+<body>
+<div id="app">
+    <h3 v-show="true">{{ message }}</h3>
+    <h3 v-show="isShow">hello world</h3>
+    <input type="button" value="动态显示" @click="showMsg">
+    <hr>
+    <h1 v-show="count>20">我出现了</h1>
+    <input type="button" value="点击显示" @click="changeCount">
+    <input type="button" value="点击消失" @click="count_change">
+</div>
+<script src="js/vue.min.js"></script>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+          message:"hello world",
+          isShow:false,
+          count:18,
+        },
+        methods:{
+            showMsg(){
+                this.isShow = !this.isShow;
+            },
+            changeCount(){
+                this.count++;
+            },
+            count_change(){
+                this.count--;
+            }
+        },
+    })
+</script>
+</body>
+</html>

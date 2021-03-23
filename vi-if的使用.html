@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-if的使用</title>
+</head>
+<body>
+    <div id="app">
+        <h3 v-if="true">hello world</h3>
+        <h3 v-else-if="true">我是v-else-if</h3>
+        <h3 v-else>我是v-else</h3>
+    </div>
+    <script src="js/vue.min.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+
+            },
+        })
+    </script>
+</body>
+</html>

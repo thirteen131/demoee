@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-bind的使用</title>
+    <style>
+        .aa{
+            border:2px red solid;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <img v-bind:src="src" alt="无法加载" v-bind:title="title" :class="{aa:showCss}">
+    <hr>
+    <input type="button" value="动态样式" @click="addCss">
+    <input type="button" value="切换图片" @click="changImg">
+</div>
+<script src="js/vue.min.js"></script>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            title:"瞅啥瞅",
+            showCss:true,
+            src:"https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2378239391,3118571432&fm=26&gp=0.jpg",
+        },
+        methods:{
+            addCss(){
+                this.showCss = !this.showCss;
+            },
+            changImg(){
+                this.src="https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3469716026,2816395410&fm=26&gp=0.jpg"
+            },
+        },
+    })
+</script>
+</body>
+</html>
